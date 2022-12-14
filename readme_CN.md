@@ -4,7 +4,7 @@
 
 [For English](https://github.com/lzctuhao/hexo-tag-videojs2/blob/main/readme.md)
 
-在Hexo中使用[video.js](https://videojs.com/advanced?video=disneys-oceans). [Demo](https://lzc2002.tk/2022/1210/folder-magazines/touch/mkv-the-power-of-gentle-touch/).
+在Hexo中使用[video.js](https://videojs.com/advanced?video=disneys-oceans)视频播放器. [样例](https://lzc2002.tk/2022/1210/folder-magazines/touch/mkv-the-power-of-gentle-touch/).
 
 ## 安装
 
@@ -14,7 +14,7 @@ npm install --save hexo-tag-videojs2
 
 ## 特性
 
-- 基本的video-js功能
+- 基本的video-js播放器功能
 - 播放器中文界面 ([video.js/lang](https://github.com/videojs/video.js/tree/main/lang))
 - 原版进度条改为可拖动进度条 ([issue](https://github.com/videojs/video.js/issues/4460))
 - 移动端:
@@ -36,7 +36,7 @@ npm install --save hexo-tag-videojs2
 | ------------ | ------------------------------------------------------------ |
 | video        | 必填项。不可重复。<br/>视频的URL。                           |
 | audio        | 可选项。可重复。<br />音轨的URL。                            |
-| subtitle     | 可选项。可重复。<br />字幕的URL。<br />必须是"`.vtt`"格式。 <br />其后必须跟随`label`键值对！ |
+| subtitle     | 可选项。可重复。<br />字幕的URL。<br />**必须是"`.vtt`"格式。** <br />**其后必须跟随`label`键值对！** |
 | label        | 可选项。可重复。<br />字幕的文字说明。<br />**前面必须时`subtitle`键值对！** |
 | aspect-ratio | 可选项。不可重复。<br />视频的长宽比。<br />格式： `Length-Width`. |
 

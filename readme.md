@@ -32,12 +32,12 @@ The full tag format is as follows:
 ```bash
 {% videojs2 "key1=value1" "key2=value2" %}
 ```
-| Key          | Description                                                  |
+| Key          | Value Description                                            |
 | ------------ | ------------------------------------------------------------ |
 | video        | Required. Non repeatable.<br />URL of the video.             |
 | audio        | Optional. Repeatable.<br />URL of audio track.               |
-| subtitle     | Optional. Repeatable.<br />URL of subtitle.<br />".vtt" format required.<br />**Must followed by a *label* k-v pair!** |
-| label        | Optional. Repeatable.<br />Label text for subtitle.<br />**Must follow a *subtitle* k-v pair!** |
+| subtitle     | Optional. Repeatable.<br />URL of subtitle.<br />**".vtt" format required.**<br />**Must followed by a `label` k-v pair!** |
+| label        | Optional. Repeatable.<br />Label text for subtitle.<br />**Must follow a `subtitle` k-v pair!** |
 | aspect-ratio | Optional. Non repeatable.<br />The aspect-ratio of the video.<br />Format: `Length-Width`. |
 
 Simple example:
