@@ -48,6 +48,7 @@ hexo.extend.tag.register('videojs2', (args) => {
           out_html=out_html.replace(/<video /,'<video height="'+value+'"');
           break;
         case "poster":
+          (value=="key") && (value="/libs/videojs2/key.png");
           out_html=out_html.replace(/<video /,'<video poster="'+value+'"');
           break;
         default :
@@ -60,8 +61,9 @@ hexo.extend.tag.register('videojs2', (args) => {
   })
   out_html+='</video>';
   out_html+='<script src="/libs/videojs2/video.min.js"></script><script src="/libs/videojs2/zh-CN.min.js"></script><script src="https://cdn.sc.gl/videojs-hotkeys/latest/videojs.hotkeys.min.js"></script><link rel="stylesheet"href="/libs/videojs2/videojs-mobile-ui.css"/><script src="/libs/videojs2/videojs-mobile-ui.min.js"></script><script>player'+index+'=videojs("video-js'+index+'",{language:"zh-CN",plugins:{hotkeys:{},},});player'+index+'.mobileUi();</script>';
+
+  out_html+='<script src="/libs/videojs2/videojs-remember.js"></script><script>videojs(document.querySelector("video")).remember({"localStorageKey": "videojs.remember.myvideo"});</script>';
   return out_html;
-   
 }, { async: true });
 
 function get_key(str){

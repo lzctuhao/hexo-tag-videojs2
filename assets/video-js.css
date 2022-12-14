@@ -1261,6 +1261,11 @@ body.vjs-full-window {
   left: 0;
   height: 100%;
 }
+@media(max-width:600px){
+  .vjs-poster[style*='url("/libs/videojs2/key.png")']{
+    background-image: url(/libs/videojs2/key_mobile.png)!important;
+  }
+}
 
 .vjs-has-started .vjs-poster,
 .vjs-using-native-controls .vjs-poster {
