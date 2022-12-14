@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/hexo-tag-videojs2.svg)](https://www.npmjs.com/package/hexo-tag-videojs2) [![license](https://img.shields.io/npm/l/hexo-tag-videojs2?style=flat)](https://raw.github.com/lzctuhao/hexo-tag-videojs2/blob/master/LICENSE)
 
-[For English](https://github.com/lzctuhao/hexo-tag-videojs2/blob/main/readme.md)
+[English Version](https://github.com/lzctuhao/hexo-tag-videojs2/blob/main/readme.md)
 
 在Hexo中使用[video.js](https://videojs.com/advanced?video=disneys-oceans)视频播放器. [样例](https://lzc2002.tk/2022/1210/folder-magazines/touch/mkv-the-power-of-gentle-touch/).
 
@@ -24,7 +24,6 @@ npm install --save hexo-tag-videojs2
   - 进入全屏时，始终锁定到横向（即使手机自动旋转未开启） ([videojs-mobile-ui.js](https://github.com/mister-ben/videojs-mobile-ui))
   - 长按播放器屏幕，三倍速播放 (DIY by myself)
 
-
 ## 用法
 
 完整tag标记格式如下：
@@ -32,18 +31,26 @@ npm install --save hexo-tag-videojs2
 ```bash
 {% videojs2 "key1=value1" "key2=value2" %}
 ```
-| 键           | 值描述                                                       |
-| ------------ | ------------------------------------------------------------ |
-| video        | 必填项。不可重复。<br/>视频的URL。                           |
-| audio        | 可选项。可重复。<br />音轨的URL。                            |
-| subtitle     | 可选项。可重复。<br />字幕的URL。<br />**必须是"`.vtt`"格式。** <br />**其后必须跟随`label`键值对！** |
-| label        | 可选项。可重复。<br />字幕的文字说明。<br />**前面必须时`subtitle`键值对！** |
-| aspect-ratio | 可选项。不可重复。<br />视频的长宽比。<br />格式： `Length-Width`. |
+
+| 键           | 值                                      | 值描述                                                                                           |
+| ------------ | --------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| video        | `string`<br />**必填项。**不可重复。 | 视频的URL。                                                                                      |
+| audio        | `string`<br />可选项。可重复。        | 音轨的URL。                                                                                      |
+| subtitle     | `string`<br />可选项。可重复。        | 字幕的URL。<br />**必须是"`.vtt`"格式。** <br />**其后必须跟随 `label`键值对！** |
+| label        | `string`<br />可选项。可重复。        | 字幕的文字说明。<br />**前面必须时 `subtitle`键值对！**                                  |
+| aspect-ratio | `string`<br />可选项。不可重复。      | 视频的长宽比。<br />格式： `Length-Width`.                                                     |
+| width        | `number`<br />可选项。不可重复。      | DOM元素的宽                                                                                      |
+| height       | `number`<br />可选项。不可重复。      | DOM元素的高                                                                                      |
+| poster       | `string`<br />可选项。不可重复。      | 视频播放前显示的封面图片URL。                                                                    |
+| loop         | `null`<br />无需 `value`值。        | 若存在，则循环播放。                                                                             |
+| autoplay     | `null`<br />无需 `value`值。        | 若存在，则自动播放。                                                                             |
+
+未来版本中将提供更多选项。
 
 示例：
 
 ```bash
-{% videojs2 "video=file.mp4" "subtitle=eng.vtt" "label=English" "subtitle=chs-eng.vtt" "label=双语" "aspect-ratio=16-9" %}
+{% videojs2 "video=file.mp4" "subtitle=eng.vtt" "label=English" "subtitle=chs-eng.vtt" "label=双语" "aspect-ratio=16-9" "loop" "autoplay" "poster=https://source.unsplash.com/1920x1080" %}
 ```
 
 ## 感谢
