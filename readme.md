@@ -2,7 +2,7 @@
 
 [中文文档](https://github.com/lzctuhao/hexo-tag-videojs2/blob/main/readme_CN.md)
 
-Use [video.js](https://videojs.com/advanced?video=disneys-oceans) in Hexo.
+Use [video.js](https://videojs.com/advanced?video=disneys-oceans) in Hexo. [Demo](https://lzc2002.tk/2022/1210/folder-magazines/touch/mkv-the-power-of-gentle-touch/).
 
 ## Installation
 
@@ -41,7 +41,7 @@ The full tag format is as follows:
 Simple example:
 
 ```bash
-{% videojs2 "video=vile.mp4" "subtitle=eng.vtt" "label=English" "subtitle=chs-eng.vtt" "label=双语" "aspect-ratio=16-9" %}
+{% videojs2 "video=file.mp4" "subtitle=eng.vtt" "label=English" "subtitle=chs-eng.vtt" "label=双语" "aspect-ratio=16-9" %}
 ```
 
 ## Thanks to

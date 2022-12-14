@@ -2,7 +2,7 @@
 
 [For English](https://github.com/lzctuhao/hexo-tag-videojs2/blob/main/readme.md)
 
-在Hexo中使用[video.js](https://videojs.com/advanced?video=disneys-oceans).
+在Hexo中使用[video.js](https://videojs.com/advanced?video=disneys-oceans). [Demo](https://lzc2002.tk/2022/1210/folder-magazines/touch/mkv-the-power-of-gentle-touch/).
 
 ## 安装
 
@@ -41,7 +41,7 @@ npm install --save hexo-tag-videojs2
 示例：
 
 ```bash
-{% videojs2 "video=vile.mp4" "subtitle=eng.vtt" "label=English" "subtitle=chs-eng.vtt" "label=双语" "aspect-ratio=16-9" %}
+{% videojs2 "video=file.mp4" "subtitle=eng.vtt" "label=English" "subtitle=chs-eng.vtt" "label=双语" "aspect-ratio=16-9" %}
 ```
 
 ## 感谢
