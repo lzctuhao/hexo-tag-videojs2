@@ -1,17 +1,25 @@
 {
   "name": "hexo-tag-videojs2",
-  "version": "0.1.1",
-  "description": "",
+  "version": "0.1.2",
+  "description": "Use video.js player in Hexo.",
   "main": "index.js",
-  
   "keywords": [
     "video",
     "hexo",
-    "tag"
+    "tag",
+    "video.js"
   ],
+  "author": {
+    "name": "lzctuhao",
+    "email": "lzctuhao@outlook.com"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:lzctuhao/hexo-tag-videojs2.git"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "homepage": "https://github.com/lzctuhao/hexo-tag-videojs2",
+  "bugs": {
+    "url": "https://github.com/lzctuhao/hexo-tag-videojs2/issues"
+  }
 }

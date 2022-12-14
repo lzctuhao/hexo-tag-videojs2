@@ -1,5 +1,7 @@
 # hexo-tag-videojs2
 
+[![npm version](https://img.shields.io/npm/v/hexo-tag-videojs2.svg)](https://www.npmjs.com/package/hexo-tag-videojs2) [![license](https://img.shields.io/npm/l/hexo-tag-videojs2?style=flat)](https://raw.github.com/lzctuhao/hexo-tag-videojs2/blob/master/LICENSE)
+
 [For English](https://github.com/lzctuhao/hexo-tag-videojs2/blob/main/readme.md)
 
 在Hexo中使用[video.js](https://videojs.com/advanced?video=disneys-oceans). [Demo](https://lzc2002.tk/2022/1210/folder-magazines/touch/mkv-the-power-of-gentle-touch/).
