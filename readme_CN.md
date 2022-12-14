@@ -1,0 +1,55 @@
+# hexo-tag-videojs2
+
+[For English](https://github.com/lzctuhao/hexo-tag-videojs2/blob/main/readme.md)
+
+在Hexo中使用[video.js](https://videojs.com/advanced?video=disneys-oceans).
+
+## 安装
+
+```bash
+npm install --save hexo-tag-videojs2
+```
+
+## 特性
+
+- 基本的video-js功能
+- 播放器中文界面 ([video.js/lang](https://github.com/videojs/video.js/tree/main/lang))
+- 原版进度条改为可拖动进度条 ([issue](https://github.com/videojs/video.js/issues/4460))
+- 移动端:
+  - 双击播放器左侧，快退10秒 ([videojs-mobile-ui.js](https://github.com/mister-ben/videojs-mobile-ui))
+  - 双击播放器右侧，快进10秒 ([videojs-mobile-ui.js](https://github.com/mister-ben/videojs-mobile-ui))
+  - 单击屏幕，显示播放/暂停切换 ([videojs-mobile-ui.js](https://github.com/mister-ben/videojs-mobile-ui))
+  - 进入全屏时，始终锁定到横向（即使手机自动旋转未开启） ([videojs-mobile-ui.js](https://github.com/mister-ben/videojs-mobile-ui))
+  - 长按播放器屏幕，三倍速播放 (DIY by myself)
+
+
+## 用法
+
+完整tag标记格式如下：
+
+```bash
+{% videojs2 "key1=value1" "key2=value2" %}
+```
+| 键           | 值描述                                                       |
+| ------------ | ------------------------------------------------------------ |
+| video        | 必填项。不可重复。<br/>视频的URL。                           |
+| audio        | 可选项。可重复。<br />音轨的URL。                            |
+| subtitle     | 可选项。可重复。<br />字幕的URL。<br />必须是"`.vtt`"格式。 <br />其后必须跟随`label`键值对！ |
+| label        | 可选项。可重复。<br />字幕的文字说明。<br />**前面必须时`subtitle`键值对！** |
+| aspect-ratio | 可选项。不可重复。<br />视频的长宽比。<br />格式： `Length-Width`. |
+
+示例：
+
+```bash
+{% videojs2 "video=vile.mp4" "subtitle=eng.vtt" "label=English" "subtitle=chs-eng.vtt" "label=双语" "aspect-ratio=16-9" %}
+```
+
+## 感谢
+
+- [videojs/video.js: Video.js - open source HTML5 video player (github.com)](https://github.com/videojs/video.js)
+- [mister-ben/videojs-mobile-ui: Mobile UI for Video.js (github.com)](https://github.com/mister-ben/videojs-mobile-ui)
+- [video.js/zh-CN.json at main · videojs/video.js (github.com)](https://github.com/videojs/video.js/blob/main/lang/zh-CN.json)
+
+## License
+
+&copy; Licensed under the MIT License.

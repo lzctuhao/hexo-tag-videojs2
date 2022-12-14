@@ -1,5 +1,9 @@
 # hexo-tag-videojs2
 
+[中文文档](https://github.com/lzctuhao/hexo-tag-videojs2/blob/main/readme_CN.md)
+
+Use [video.js](https://videojs.com/advanced?video=disneys-oceans) in Hexo.
+
 ## Installation
 
 ```bash

@@ -1,6 +1,6 @@
 {
   "name": "hexo-tag-videojs2",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "index.js",
   
@@ -9,6 +9,9 @@
     "hexo",
     "tag"
   ],
-
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:lzctuhao/hexo-tag-videojs2.git"
+  },
   "license": "MIT"
 }
