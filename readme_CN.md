@@ -39,10 +39,10 @@ npm install --save hexo-tag-videojs2
 | audio        | `string`<br />可选项。可重复。       | 音轨的URL。                                                                                      |
 | subtitle     | `string`<br />可选项。可重复。       | 字幕的URL。<br />**必须是"`.vtt`"格式。** <br />**其后必须跟随 `label`键值对！** |
 | label        | `string`<br />可选项。可重复。       | 字幕的文字说明。<br />**前面必须时 `subtitle`键值对！**                                  |
-| aspect-ratio | `string`<br />可选项。不可重复。     | 视频的长宽比。<br />格式： `Length-Width`.                                                     |
+| aspect-ratio | `string`<br />可选项。不可重复。     | 视频的长宽比。<br />格式： `Width-Height`.                                                     |
 | width        | `number`<br />可选项。不可重复。     | DOM元素的宽                                                                                      |
 | height       | `number`<br />可选项。不可重复。     | DOM元素的高                                                                                      |
-| poster       | `string`<br />可选项。不可重复。     | 视频播放前显示的封面图片URL。<br />*注：如果 `"poster=key"`，则封面将显示快捷键示意图。*      |
+| poster       | `string`<br />可选项。不可重复。     | 视频播放前显示的封面图片URL。<br />*注：如果 `"poster=key"`，则封面将显示快捷键示意图。*     |
 | loop         | `null`<br />无需 `value`值。       | 若存在，则循环播放。                                                                             |
 | autoplay     | `null`<br />无需 `value`值。       | 若存在，则自动播放。                                                                             |
 
@@ -51,7 +51,9 @@ npm install --save hexo-tag-videojs2
 示例：
 
 ```bash
-{% videojs2 "video=file.mp4" "subtitle=eng.vtt" "label=English" "subtitle=chs-eng.vtt" "label=双语" "aspect-ratio=16-9" "loop" "autoplay" "poster=/libs/videojs2/key.png" %}
+{% videojs2 "video=file1.mp4" "subtitle=eng.vtt" "label=English" "subtitle=chs-eng.vtt" "label=双语" "poster=cover.png" %}
+
+{% videojs2 "video=file2.mp4" "aspect-ratio=16-9" "loop" "autoplay" "poster=key" %}
 ```
 
 ## 感谢

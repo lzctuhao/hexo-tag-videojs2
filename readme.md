@@ -38,7 +38,7 @@ The full tag format is as follows:
 | audio        | `string`<br />Optional. Repeatable.               | URL of audio track.                                                                                                                      |
 | subtitle     | `string`<br />Optional. Repeatable.               | URL of subtitle.<br />**".vtt" format required.**<br />**Must followed by a `label` k-v pair!**                            |
 | label        | `string`<br />Optional. Repeatable.               | Label text for subtitle.<br />**Must follow a `subtitle` k-v pair!**                                                             |
-| aspect-ratio | `string`<br />Optional. Non repeatable.           | The aspect-ratio of the video.<br />Format: `Length-Width`.                                                                            |
+| aspect-ratio | `string`<br />Optional. Non repeatable.           | The aspect-ratio of the video.<br />Format: `Width-Height`.                                                                            |
 | width        | `number`<br />Optional. Non repeatable.           | Width of DOM.                                                                                                                            |
 | height       | `number`<br />Optional. Non repeatable.           | Height of DOM.                                                                                                                           |
 | poster       | `string`<br />Optional. Non repeatable.           | URL of the poster picture shown before playing.<br />Note: If `"poster=key"`, a shortcut key guide will be shown on the cover picture. |
@@ -50,8 +50,9 @@ More options will be available in future releases.
 Simple example:
 
 ```bash
-{% videojs2 "video=file.mp4" "subtitle=eng.vtt" "label=English" "subtitle=chs-eng.vtt" "label=双语" "aspect-ratio=16-9" "loop" "autoplay" "poster=/libs/videojs2/key.png" %}
+{% videojs2 "video=file1.mp4" "subtitle=eng.vtt" "label=English" "subtitle=chs-eng.vtt" "label=双语" "poster=cover.png" %}
 
+{% videojs2 "video=file2.mp4" "aspect-ratio=16-9" "loop" "autoplay" "poster=key" %}
 ```
 
 ## Thanks to
@@ -59,6 +60,7 @@ Simple example:
 - [videojs/video.js: Video.js - open source HTML5 video player (github.com)](https://github.com/videojs/video.js)
 - [mister-ben/videojs-mobile-ui: Mobile UI for Video.js (github.com)](https://github.com/mister-ben/videojs-mobile-ui)
 - [video.js/zh-CN.json at main · videojs/video.js (github.com)](https://github.com/videojs/video.js/blob/main/lang/zh-CN.json)
+- [sethjeffery/videojs-remember: Remembers the last place the user was at when watching a video, using localStorage. (github.com)](https://github.com/sethjeffery/videojs-remember)
 
 ## License
 
