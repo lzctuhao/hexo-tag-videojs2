@@ -3,33 +3,23 @@
  * Licensed under the Apache-2.0 license. */
 (function(window, videojs) {
   'use strict';
-
-  var defaults = {
-        option: true
-      },
-      chapters;
-
+  var chapters;
   /**
    * Initialize the plugin.
    * @param options (optional) {object} configuration for the plugin
    */
-  
   chapters = function(options) {
-    var //settings = videojs.util.mergeOptions(defaults, options),
-        player = this,
+    var player = this,
         tracks = player.textTracks(),
         i = 0,
         duration = 0,
         track, chaptersTrack, 
         cue, cues, 
-        markup = '',
-        trackLoaded = false;
+        markup = ''
 
     // Find chapters track
-    //console.log(tracks);
     for (i=0;i<tracks.length;i++) {
       track = tracks[i];
-      //console.log(track);
       if (track.kind === 'chapters') {
         chaptersTrack = track;
         console.log(chaptersTrack);
@@ -38,19 +28,12 @@
     }
 
     // Set player duration.
-    //player.on("loadedmetadata", function () {
-      duration = player.duration();
-      createTracks(cues, duration);
-    //});
+    duration = player.duration();
+    createTracks(cues, duration);
     
     // On load add tracks markers to timeline.
-    //chaptersTrack.on('loaded', function() {
-        //console.log(chaptersTrack);
-        cues = chaptersTrack.cues_;
-        //console.log(cues);
-        createTracks(cues, duration);
-    //});
-
+    cues = chaptersTrack.cues_;
+    createTracks(cues, duration);
 
     function createTracks(cues, duration) 
     {
@@ -65,19 +48,11 @@
       {
         cue = cues[i];
         position = parseInt((cue.startTime / duration) * 1000) / 10;
-
         markup += '<div class="vjs-chapter-marker vjs-chpater-marker-' + cue.index + '" style="left:' + position + '%;" data-timemark="' + cue.startTime + '">';
         markup += (cue.text !== '') ? '  <div class="vjs-chapter-marker-title">' + cue.text + '</div>' : '';
         markup += '</div>';
       }
 
-      
-      /*
-      controlBar.querySelector('.vjs-progress-control').appendChild(player.createEl('div', {
-        className: 'vjs-chapter-markers-bar',
-        innerHTML: markup,
-        tabindex: -1
-      }));*/
       player.controlBar.contentEl().getElementsByClassName('vjs-progress-holder')[0].insertAdjacentHTML('beforeend',"<div class='vjs-chapter-markers-bar'>"+markup+"</div>");
 
       markers = controlBar.querySelectorAll('.vjs-chapter-marker');
