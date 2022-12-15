@@ -23,6 +23,7 @@ Advanced features:
 - Toast when changing volume (DIY by myself)
 - Draggable progress bar ([issue](https://github.com/videojs/video.js/issues/4460))
 - Save playback progress ([videojs-remember](https://github.com/sethjeffery/videojs-remember))
+- Show markers for chapters on progress bar
 - On mobile:
   - Double-tap the left side of the player to rewind ten seconds ([videojs-mobile-ui.js](https://github.com/mister-ben/videojs-mobile-ui))
   - Double-tap the right side of the player to fast-forward ten seconds([videojs-mobile-ui.js](https://github.com/mister-ben/videojs-mobile-ui))
@@ -49,6 +50,7 @@ The full tag format is as follows:
 | audio        | `string`<br />Optional. Repeatable.               | URL of audio track.                                                                                                                      |
 | subtitle     | `string`<br />Optional. Repeatable.               | URL of subtitle.<br />**".vtt" format required.**<br />**Must followed by a `label` k-v pair!**                            |
 | label        | `string`<br />Optional. Repeatable.               | Label text for subtitle.<br />**Must follow a `subtitle` k-v pair!**                                                             |
+| chapters     | `string`<br />Optional. Non repeatable.           | URL of chapters.<br />**".vtt" format required.**                                                                                  |
 | aspect-ratio | `string`<br />Optional. Non repeatable.           | The aspect-ratio of the video.<br />Format: `Width-Height`.                                                                            |
 | width        | `number`<br />Optional. Non repeatable.           | Width of DOM.                                                                                                                            |
 | height       | `number`<br />Optional. Non repeatable.           | Height of DOM.                                                                                                                           |
@@ -62,9 +64,40 @@ Simple example:
 
 ```bash
 {% videojs2 "video=file1.mp4" "subtitle=eng.vtt" "label=English" "subtitle=chs-eng.vtt" "label=双语" "poster=cover.png" %}
-
-{% videojs2 "video=file2.mp4" "aspect-ratio=16-9" "loop" "autoplay" "poster=key" %}
 ```
+
+```bash
+{% videojs2 "video=file2.mp4" "chapters=touch_chapter.vtt" "aspect-ratio=16-9" "loop" "autoplay" "poster=key" %}
+```
+
+```bash
+{% videojs2 
+"video=https://sbw0104-my.sharepoint.com/:v:/g/personal/013_sbw0104_onmicrosoft_com/ERQD08cGcYhLotmoQ6q-LKEB6bCfHhe865Htq7NvLkHkMA?e=1T1Wu0&download=1"
+"chapters=touch_chapter.vtt"
+"subtitle=touch.vtt"  "label=English"
+"subtitle=touch2.vtt" "label=双语"
+"poster=key" %}
+```
+
+> **Note**
+>
+> `.vtt` file for chapters may be like:
+>
+> ```vtt
+> WEBVTT
+>
+> 00:00:00.000 --> 00:00:30.000
+> Chapter I
+>
+> 00:00:30.000 --> 00:00:56.000
+> Chapter II
+>
+> 00:00:56.000 --> 00:05:34.000
+> Chapter III
+>
+> 00:05:34.000 --> 00:07:16.000
+> Credits
+> ```
 
 ## Thanks to
 

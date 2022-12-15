@@ -626,7 +626,8 @@ body.vjs-full-window {
   text-align: center;
   text-transform: capitalize;
   list-style-type: none;
-  padding: 4px 0;
+  padding: 6px 0;
+  line-height: 1.15em;
 }
 
 .vjs-menu li.vjs-menu-item:focus,
@@ -697,7 +698,8 @@ body.vjs-full-window {
 .vjs-layout-large .vjs-menu-button-popup .vjs-menu .vjs-menu-content,
 .vjs-layout-x-large .vjs-menu-button-popup .vjs-menu .vjs-menu-content,
 .vjs-layout-huge .vjs-menu-button-popup .vjs-menu .vjs-menu-content {
-  max-height: 25em;
+  max-height: 200px;
+  overflow-x: clip;
 }
 
 .vjs-workinghover .vjs-menu-button-popup.vjs-hover .vjs-menu,
@@ -922,7 +924,7 @@ body.vjs-full-window {
   position: absolute;
   right: -.45em;
   top: calc(50% - .45em);
-  z-index: 1;
+  z-index: 10;
   line-height: .9em;
 }
 

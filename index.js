@@ -8,7 +8,7 @@ var assets_path=pathFn.join(__dirname,"/assets/");/* */
 hexo.extend.generator.register('videojs2-g', function (locals) {
   let return_arr=[];
   fs.listDirSync(assets_path).forEach(function(filename) {
-    return_arr.push({
+    filename.substring(0, 1) != "_" && return_arr.push({
       path: '/libs/videojs2/'+filename,
       data: () => fs.createReadStream(pathFn.join(assets_path, filename)),
     })
@@ -16,7 +16,7 @@ hexo.extend.generator.register('videojs2-g', function (locals) {
   return return_arr;
 });
 
-let index=0;
+let index=0;is_chapter=false;
 
 hexo.extend.tag.register('videojs2', (args) => {
   index++;
@@ -32,10 +32,14 @@ hexo.extend.tag.register('videojs2', (args) => {
           out_html+='<source src="'+value+'" type="video/ogg">';
           break;
         case "subtitle":
-          out_html+='<track src="'+value+'" kind="subtitles" label="';
+          out_html+='<track preload="auto" src="'+value+'" kind="subtitles" label="';
           break;
         case "label":
           out_html+=value+'">';
+          break;
+        case "chapters":
+          out_html+='<track preload="auto" src="'+value+'" kind="chapters" label="chapters" />';
+          is_chapter=true;
           break;
 
         case "aspect-ratio":
@@ -60,11 +64,13 @@ hexo.extend.tag.register('videojs2', (args) => {
     }
   })
   out_html+='</video>';
-  out_html+='<script src="/libs/videojs2/video.min.js"></script><script src="/libs/videojs2/zh-CN.min.js"></script><script src="https://cdn.sc.gl/videojs-hotkeys/latest/videojs.hotkeys.min.js"></script><script>player'+index+'=videojs("video-js'+index+'",{language:"zh-CN",plugins:{hotkeys:{},},});</script>';
+  out_html+='<script src="/libs/videojs2/video.min.js"></script><script src="/libs/videojs2/zh-CN.min.js"></script><script src="https://cdn.sc.gl/videojs-hotkeys/latest/videojs.hotkeys.min.js"></script><script>player'+index+'=videojs("video-js'+index+'",{language:"zh-CN",responsive:true,plugins:{hotkeys:{},},});</script>';
   out_html+='<link rel="stylesheet" href="/libs/videojs2/mytoast.css"/><script src="/libs/videojs2/mytoast.js"></script><script>toast_init(player'+index+')</script>'
   out_html+='<link rel="stylesheet"href="/libs/videojs2/videojs-mobile-ui.css"/><script src="/libs/videojs2/videojs-mobile-ui.min.js"></script><script>player'+index+'.mobileUi();</script>'
 
   out_html+='<script src="/libs/videojs2/videojs-remember.js"></script><script>videojs(document.querySelector("video")).remember({"localStorageKey": "videojs.remember.myvideo"});</script>';
+
+  is_chapter && (out_html+='<link rel="stylesheet" href="/libs/videojs2/videojs-chapters.css"/><script src="/libs/videojs2/videojs-chapters.js"></script><script>window.addEventListener("load",function(){videojs(document.querySelector("video")).chapters();})</script>');
   return out_html;
 }, { async: true });
 

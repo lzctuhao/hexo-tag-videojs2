@@ -22,6 +22,7 @@ npm install --save hexo-tag-videojs2
 - 原版进度条改为可拖动进度条 ([issue](https://github.com/videojs/video.js/issues/4460))
 - 改变音量时，增加文字提示(DIY by myself)
 - 保存播放进度 ([videojs-remember](https://github.com/sethjeffery/videojs-remember))
+- 若视频有章节，将在进度条上显示标记点
 - 移动端:
   - 双击播放器左侧，快退10秒 ([videojs-mobile-ui.js](https://github.com/mister-ben/videojs-mobile-ui))
   - 双击播放器右侧，快进10秒 ([videojs-mobile-ui.js](https://github.com/mister-ben/videojs-mobile-ui))
@@ -42,18 +43,19 @@ npm install --save hexo-tag-videojs2
 {% videojs2 "key1=value1" "key2=value2" %}
 ```
 
-| 键           | 值                                     | 值描述                                                                                           |
-| ------------ | -------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| video        | `string`<br />**必填项。**不可重复。 | 视频的URL。                                                                                      |
-| audio        | `string`<br />可选项。可重复。       | 音轨的URL。                                                                                      |
-| subtitle     | `string`<br />可选项。可重复。       | 字幕的URL。<br />**必须是"`.vtt`"格式。** <br />**其后必须跟随 `label`键值对！** |
-| label        | `string`<br />可选项。可重复。       | 字幕的文字说明。<br />**前面必须是 `subtitle`键值对！**                                 |
-| aspect-ratio | `string`<br />可选项。不可重复。     | 视频的长宽比。<br />格式： `Width-Height`.                                                     |
-| width        | `number`<br />可选项。不可重复。     | DOM元素的宽                                                                                      |
-| height       | `number`<br />可选项。不可重复。     | DOM元素的高                                                                                      |
-| poster       | `string`<br />可选项。不可重复。     | 视频播放前显示的封面图片URL。<br />*注：如果 `"poster=key"`，则封面将显示快捷键示意图。*     |
-| loop         | `null`<br />无需 `value`值。       | 若存在，则循环播放。                                                                             |
-| autoplay     | `null`<br />无需 `value`值。       | 若存在，则自动播放。                                                                             |
+| 键           | 值                                            | 值描述                                                                                           |
+| ------------ | --------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| video        | `string`<br />**必填项。** 不可重复。 | 视频的URL。                                                                                      |
+| audio        | `string`<br />可选项。可重复。              | 音轨的URL。                                                                                      |
+| subtitle     | `string`<br />可选项。可重复。              | 字幕的URL。<br />**必须是"`.vtt`"格式。** <br />**其后必须跟随 `label`键值对！** |
+| label        | `string`<br />可选项。可重复。              | 字幕的文字说明。<br />**前面必须是 `subtitle`键值对！**                                 |
+| chapters     | `string`<br />可选项。不可重复。            | 章节（书签）的URL。<br />**必须是"`.vtt`"格式。**                                        |
+| aspect-ratio | `string`<br />可选项。不可重复。            | 视频的长宽比。<br />格式： `Width-Height`.                                                     |
+| width        | `number`<br />可选项。不可重复。            | DOM元素的宽                                                                                      |
+| height       | `number`<br />可选项。不可重复。            | DOM元素的高                                                                                      |
+| poster       | `string`<br />可选项。不可重复。            | 视频播放前显示的封面图片URL。<br />*注：如果 `"poster=key"`，则封面将显示快捷键示意图。*     |
+| loop         | `null`<br />无需 `value`值。              | 若存在，则循环播放。                                                                             |
+| autoplay     | `null`<br />无需 `value`值。              | 若存在，则自动播放。                                                                             |
 
 未来版本中将提供更多选项。
 
@@ -61,9 +63,40 @@ npm install --save hexo-tag-videojs2
 
 ```bash
 {% videojs2 "video=file1.mp4" "subtitle=eng.vtt" "label=English" "subtitle=chs-eng.vtt" "label=双语" "poster=cover.png" %}
-
-{% videojs2 "video=file2.mp4" "aspect-ratio=16-9" "loop" "autoplay" "poster=key" %}
 ```
+
+```bash
+{% videojs2 "video=file2.mp4" "chapters=touch_chapter.vtt" "aspect-ratio=16-9" "loop" "autoplay" "poster=key" %}
+```
+
+```bash
+{% videojs2 
+"video=https://sbw0104-my.sharepoint.com/:v:/g/personal/013_sbw0104_onmicrosoft_com/ERQD08cGcYhLotmoQ6q-LKEB6bCfHhe865Htq7NvLkHkMA?e=1T1Wu0&download=1"
+"chapters=touch_chapter.vtt"
+"subtitle=touch.vtt"  "label=English"
+"subtitle=touch2.vtt" "label=双语"
+"poster=key" %}
+```
+
+> **Note**
+>
+> 章节的 `.vtt`文件格式样例：
+>
+> ```vtt
+> WEBVTT
+>
+> 00:00:00.000 --> 00:00:30.000
+> Chapter I
+>
+> 00:00:30.000 --> 00:00:56.000
+> Chapter II
+>
+> 00:00:56.000 --> 00:05:34.000
+> Chapter III
+>
+> 00:05:34.000 --> 00:07:16.000
+> Credits
+> ```
 
 ## 感谢
 
