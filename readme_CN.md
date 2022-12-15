@@ -39,7 +39,7 @@ npm install --save hexo-tag-videojs2
 | video        | `string`<br />**必填项。**不可重复。 | 视频的URL。                                                                                      |
 | audio        | `string`<br />可选项。可重复。       | 音轨的URL。                                                                                      |
 | subtitle     | `string`<br />可选项。可重复。       | 字幕的URL。<br />**必须是"`.vtt`"格式。** <br />**其后必须跟随 `label`键值对！** |
-| label        | `string`<br />可选项。可重复。       | 字幕的文字说明。<br />**前面必须时 `subtitle`键值对！**                                  |
+| label        | `string`<br />可选项。可重复。       | 字幕的文字说明。<br />**前面必须是 `subtitle`键值对！**                                 |
 | aspect-ratio | `string`<br />可选项。不可重复。     | 视频的长宽比。<br />格式： `Width-Height`.                                                     |
 | width        | `number`<br />可选项。不可重复。     | DOM元素的宽                                                                                      |
 | height       | `number`<br />可选项。不可重复。     | DOM元素的高                                                                                      |
