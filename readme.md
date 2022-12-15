@@ -23,6 +23,7 @@ npm install --save hexo-tag-videojs2
   - Single-tap the screen to show a play/pause toggle([videojs-mobile-ui.js](https://github.com/mister-ben/videojs-mobile-ui))
   - Always lock to landscape when entering fullscreen (works even when device rotation is disabled/non-functional) ([videojs-mobile-ui.js](https://github.com/mister-ben/videojs-mobile-ui))
   - Triple speed playback when long pressing the screen (DIY by myself)
+  - Slide left and right within the WHOLE video area to adjust the video progress (DIY by myself)
 
 ## Usage
 
