@@ -26,24 +26,24 @@ hexo.extend.tag.register('videojs2', (args) => {
     if(value){
       switch (get_key(arg)){
         case "video":
-            out_html+='<source src="'+value+'" type="video/mp4">';
-            break;
+          out_html+='<source src="'+value+'" type="video/mp4">';
+          break;
         case "audio":
-            out_html+='<source src="'+value+'" type="video/ogg">';
-            break;
+          out_html+='<source src="'+value+'" type="video/ogg">';
+          break;
         case "subtitle":
-            out_html+='<track src="'+value+'" kind="subtitles" label="';
-            break;
+          out_html+='<track src="'+value+'" kind="subtitles" label="';
+          break;
         case "label":
-            out_html+=value+'">';
-            break;
+          out_html+=value+'">';
+          break;
 
         case "aspect-ratio":
-            out_html=out_html.replace(/vjs-16-9/,'vjs-'+value);
-            break;
+          out_html=out_html.replace(/vjs-16-9/,'vjs-'+value);
+          break;
         case "width":
-            out_html=out_html.replace(/<video /,'<video width="'+value+'"');
-            break;
+          out_html=out_html.replace(/<video /,'<video width="'+value+'"');
+          break;
         case "height":
           out_html=out_html.replace(/<video /,'<video height="'+value+'"');
           break;
@@ -60,7 +60,9 @@ hexo.extend.tag.register('videojs2', (args) => {
     }
   })
   out_html+='</video>';
-  out_html+='<script src="/libs/videojs2/video.min.js"></script><script src="/libs/videojs2/zh-CN.min.js"></script><script src="https://cdn.sc.gl/videojs-hotkeys/latest/videojs.hotkeys.min.js"></script><link rel="stylesheet"href="/libs/videojs2/videojs-mobile-ui.css"/><script src="/libs/videojs2/videojs-mobile-ui.min.js"></script><script>player'+index+'=videojs("video-js'+index+'",{language:"zh-CN",plugins:{hotkeys:{},},});player'+index+'.mobileUi();</script>';
+  out_html+='<script src="/libs/videojs2/video.min.js"></script><script src="/libs/videojs2/zh-CN.min.js"></script><script src="https://cdn.sc.gl/videojs-hotkeys/latest/videojs.hotkeys.min.js"></script><script>player'+index+'=videojs("video-js'+index+'",{language:"zh-CN",plugins:{hotkeys:{},},});</script>';
+  out_html+='<link rel="stylesheet" href="/libs/videojs2/mytoast.css"/><script src="/libs/videojs2/mytoast.js"></script><script>toast_init(player'+index+')</script>'
+  out_html+='<link rel="stylesheet"href="/libs/videojs2/videojs-mobile-ui.css"/><script src="/libs/videojs2/videojs-mobile-ui.min.js"></script><script>player'+index+'.mobileUi();</script>'
 
   out_html+='<script src="/libs/videojs2/videojs-remember.js"></script><script>videojs(document.querySelector("video")).remember({"localStorageKey": "videojs.remember.myvideo"});</script>';
   return out_html;

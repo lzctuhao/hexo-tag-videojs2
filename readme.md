@@ -1,6 +1,6 @@
 # hexo-tag-videojs2
 
-[![npm version](https://img.shields.io/npm/v/hexo-tag-videojs2.svg)](https://www.npmjs.com/package/hexo-tag-videojs2) [![license](https://img.shields.io/npm/l/hexo-tag-videojs2?style=flat)](https://raw.github.com/lzctuhao/hexo-tag-videojs2/blob/master/LICENSE)
+[![npm version](https://img.shields.io/npm/v/hexo-tag-videojs2.svg)](https://www.npmjs.com/package/hexo-tag-videojs2) [![license](https://img.shields.io/npm/l/hexo-tag-videojs2?style=flat)](https://raw.github.com/lzctuhao/hexo-tag-videojs2/master/LICENSE)
 
 [中文文档](https://github.com/lzctuhao/hexo-tag-videojs2/blob/main/readme_CN.md)
 
@@ -16,10 +16,11 @@ npm install --save hexo-tag-videojs2
 
 - Basic video-js functions
 
-Advanced features: 
+Advanced features:
 
 - I18N ([video.js/lang](https://github.com/videojs/video.js/tree/main/lang))
 - Muti audio and subtitle tracks supported
+- Toast when changing volume (DIY by myself)
 - Draggable progress bar ([issue](https://github.com/videojs/video.js/issues/4460))
 - Save playback progress ([videojs-remember](https://github.com/sethjeffery/videojs-remember))
 - On mobile:
@@ -29,8 +30,6 @@ Advanced features:
   - Always lock to landscape when entering fullscreen (works even when device rotation is disabled/non-functional) ([videojs-mobile-ui.js](https://github.com/mister-ben/videojs-mobile-ui))
   - Triple speed playback when long pressing the screen (DIY by myself)
   - Slide left and right within the WHOLE video area to adjust the video progress (DIY by myself)
-
-
 
 > **Note**
 >

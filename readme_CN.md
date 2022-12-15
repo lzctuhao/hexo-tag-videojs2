@@ -1,6 +1,6 @@
 # hexo-tag-videojs2
 
-[![npm version](https://img.shields.io/npm/v/hexo-tag-videojs2.svg)](https://www.npmjs.com/package/hexo-tag-videojs2) [![license](https://img.shields.io/npm/l/hexo-tag-videojs2?style=flat)](https://raw.github.com/lzctuhao/hexo-tag-videojs2/blob/master/LICENSE)
+[![npm version](https://img.shields.io/npm/v/hexo-tag-videojs2.svg)](https://www.npmjs.com/package/hexo-tag-videojs2) [![license](https://img.shields.io/npm/l/hexo-tag-videojs2?style=flat)](https://raw.github.com/lzctuhao/hexo-tag-videojs2/master/LICENSE)
 
 [English Version](https://github.com/lzctuhao/hexo-tag-videojs2/blob/main/readme.md)
 
@@ -20,6 +20,7 @@ npm install --save hexo-tag-videojs2
 
 - 播放器中文界面 ([video.js/lang](https://github.com/videojs/video.js/tree/main/lang))
 - 原版进度条改为可拖动进度条 ([issue](https://github.com/videojs/video.js/issues/4460))
+- 改变音量时，增加文字提示(DIY by myself)
 - 保存播放进度 ([videojs-remember](https://github.com/sethjeffery/videojs-remember))
 - 移动端:
   - 双击播放器左侧，快退10秒 ([videojs-mobile-ui.js](https://github.com/mister-ben/videojs-mobile-ui))
