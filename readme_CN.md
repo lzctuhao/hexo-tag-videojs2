@@ -15,6 +15,9 @@ npm install --save hexo-tag-videojs2
 ## 特性
 
 - 基本的video-js播放器功能
+
+进阶功能：
+
 - 播放器中文界面 ([video.js/lang](https://github.com/videojs/video.js/tree/main/lang))
 - 原版进度条改为可拖动进度条 ([issue](https://github.com/videojs/video.js/issues/4460))
 - 保存播放进度 ([videojs-remember](https://github.com/sethjeffery/videojs-remember))
@@ -25,6 +28,10 @@ npm install --save hexo-tag-videojs2
   - 进入全屏时，始终锁定到横向（即使手机自动旋转未开启） ([videojs-mobile-ui.js](https://github.com/mister-ben/videojs-mobile-ui))
   - 长按播放器屏幕，三倍速播放 (DIY by myself)
   - 视频区域内左右滑动，均可调节视频进度(DIY by myself)
+
+> **Note**
+>
+> 如不需要进阶功能，为了更快的加载速度，建议使用[hexo-tag-video-js](https://github.com/Meta-Network/hexo-tag-video-js)。
 
 ## 用法
 

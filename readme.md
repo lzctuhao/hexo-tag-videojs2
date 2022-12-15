@@ -15,7 +15,11 @@ npm install --save hexo-tag-videojs2
 ## Features
 
 - Basic video-js functions
+
+Advanced features: 
+
 - I18N ([video.js/lang](https://github.com/videojs/video.js/tree/main/lang))
+- Muti audio and subtitle tracks supported
 - Draggable progress bar ([issue](https://github.com/videojs/video.js/issues/4460))
 - Save playback progress ([videojs-remember](https://github.com/sethjeffery/videojs-remember))
 - On mobile:
@@ -25,6 +29,12 @@ npm install --save hexo-tag-videojs2
   - Always lock to landscape when entering fullscreen (works even when device rotation is disabled/non-functional) ([videojs-mobile-ui.js](https://github.com/mister-ben/videojs-mobile-ui))
   - Triple speed playback when long pressing the screen (DIY by myself)
   - Slide left and right within the WHOLE video area to adjust the video progress (DIY by myself)
+
+
+
+> **Note**
+>
+> If advanced features are not needed, use [hexo-tag-video-js](https://github.com/Meta-Network/hexo-tag-video-js) instead for a faster loading speed.
 
 ## Usage
 
