@@ -64,6 +64,10 @@ npm install --save hexo-tag-videojs2
 - [video.js/zh-CN.json at main · videojs/video.js (github.com)](https://github.com/videojs/video.js/blob/main/lang/zh-CN.json)
 - [sethjeffery/videojs-remember: Remembers the last place the user was at when watching a video, using localStorage. (github.com)](https://github.com/sethjeffery/videojs-remember)
 
+## Issues
+
+Bugs & 新功能需求: [issues页](https://github.com/lzctuhao/hexo-tag-videojs2/issues)
+
 ## License
 
 &copy; Licensed under the MIT License.

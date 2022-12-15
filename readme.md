@@ -17,6 +17,7 @@ npm install --save hexo-tag-videojs2
 - Basic video-js functions
 - I18N ([video.js/lang](https://github.com/videojs/video.js/tree/main/lang))
 - Draggable progress bar ([issue](https://github.com/videojs/video.js/issues/4460))
+- Save playback progress ([videojs-remember](https://github.com/sethjeffery/videojs-remember))
 - On mobile:
   - Double-tap the left side of the player to rewind ten seconds ([videojs-mobile-ui.js](https://github.com/mister-ben/videojs-mobile-ui))
   - Double-tap the right side of the player to fast-forward ten seconds([videojs-mobile-ui.js](https://github.com/mister-ben/videojs-mobile-ui))
@@ -62,6 +63,10 @@ Simple example:
 - [mister-ben/videojs-mobile-ui: Mobile UI for Video.js (github.com)](https://github.com/mister-ben/videojs-mobile-ui)
 - [video.js/zh-CN.json at main · videojs/video.js (github.com)](https://github.com/videojs/video.js/blob/main/lang/zh-CN.json)
 - [sethjeffery/videojs-remember: Remembers the last place the user was at when watching a video, using localStorage. (github.com)](https://github.com/sethjeffery/videojs-remember)
+
+## Issues
+
+Bugs & feature requests: [issues page](https://github.com/lzctuhao/hexo-tag-videojs2/issues)
 
 ## License
 
