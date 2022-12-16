@@ -101,6 +101,7 @@ npm install --save hexo-tag-videojs2
 ## 感谢
 
 - [videojs/video.js: Video.js - open source HTML5 video player (github.com)](https://github.com/videojs/video.js)
+- [ctd1500/videojs-hotkeys: Adds more hotkey support to video.js (github.com)](https://github.com/ctd1500/videojs-hotkeys)
 - [mister-ben/videojs-mobile-ui: Mobile UI for Video.js (github.com)](https://github.com/mister-ben/videojs-mobile-ui)
 - [video.js/zh-CN.json at main · videojs/video.js (github.com)](https://github.com/videojs/video.js/blob/main/lang/zh-CN.json)
 - [sethjeffery/videojs-remember: Remembers the last place the user was at when watching a video, using localStorage. (github.com)](https://github.com/sethjeffery/videojs-remember)
