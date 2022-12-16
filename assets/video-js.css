@@ -928,9 +928,9 @@ body.vjs-full-window {
   line-height: .9em;
 }
 
-.video-js .vjs-load-progress {
+/*.video-js .vjs-load-progress {
   background: rgb(248 187 208 / 50%);
-}
+}*/
 
 .video-js .vjs-load-progress div {
   background: rgba(173, 20, 86, 0.35);

@@ -19,8 +19,8 @@
   width: 0.3em;
   height: 0.3em;
   border: none;
-  border-radius: 1em;
-  background: #f48fb1;
+  /*border-radius: 1em;*/
+  background: rgb(248 187 208 / 50%);
   cursor: pointer;
   /*更好点击*/
   top: 2.5px;

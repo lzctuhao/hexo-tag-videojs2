@@ -1,5 +1,4 @@
 function toast_init(player){
-    //console.log(player.el_)
     player.el_.insertAdjacentHTML('beforeend',"<div class='videojs-toast'><span class='toast_text'></span></div>");
 }
 var t;
