@@ -69,7 +69,7 @@ hexo.extend.tag.register('videojs2', (args) => {
   out_html+='</video>';
   out_html+='<script src="/libs/videojs2/video.min.js"></script><script src="/libs/videojs2/zh-CN.min.js"></script><script src="/libs/videojs2/videojs.hotkeys.min.js"></script><script>player'+index+'=videojs("video-js'+index+'",{language:"zh-CN",responsive:true,plugins:{hotkeys:{alwaysCaptureHotkeys:true},},});</script>';
   out_html+='<link rel="stylesheet" href="/libs/videojs2/mytoast.css"/><script src="/libs/videojs2/mytoast.js"></script><script>toast_init(player'+index+')</script>'
-  out_html+='<link rel="stylesheet"href="/libs/videojs2/videojs-mobile-ui.css"/><script src="/libs/videojs2/videojs-mobile-ui.js"></script><script>player'+index+'.mobileUi();</script>'
+  out_html+='<link rel="stylesheet"href="/libs/videojs2/videojs-mobile-ui.css"/><script src="/libs/videojs2/videojs-mobile-ui.min.js"></script><script>player'+index+'.mobileUi();</script>'
 
   out_html+='<script src="/libs/videojs2/videojs-remember.min.js"></script><script>videojs(document.querySelector("video")).remember({"localStorageKey": "videojs.remember.myvideo"});</script>';
 
