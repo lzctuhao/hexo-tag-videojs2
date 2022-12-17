@@ -30,6 +30,12 @@ npm install --save hexo-tag-videojs2
   - 进入全屏时，始终锁定到横向（即使手机自动旋转未开启） ([videojs-mobile-ui.js](https://github.com/mister-ben/videojs-mobile-ui))
   - 长按播放器屏幕，三倍速播放 (DIY by myself)
   - 视频区域内左右滑动，均可调节视频进度(DIY by myself)
+  - 左半边屏幕上下滑动，调节亮度 (DIY by myself)
+  - 右半边屏幕上下滑动，调节音量 (DIY by myself)
+
+![快捷键](https://github.com/lzctuhao/hexo-tag-videojs2/blob/main/assets/key.png?raw=true)
+
+![手势](https://github.com/lzctuhao/hexo-tag-videojs2/blob/main/assets/key_mobile.png?raw=true)
 
 > **Note**
 >

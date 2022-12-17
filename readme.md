@@ -31,6 +31,8 @@ Advanced features:
   - Always lock to landscape when entering fullscreen (works even when device rotation is disabled/non-functional) ([videojs-mobile-ui.js](https://github.com/mister-ben/videojs-mobile-ui))
   - Triple speed playback when long pressing the screen (DIY by myself)
   - Slide left and right within the WHOLE video area to adjust the video progress (DIY by myself)
+  - Swipe up-and-down on the left half of the screen to adjust the brightness (DIY by myself)
+  - Swipe up-and-down on the right half of the screen to adjust the volume (DIY by myself)
 
 > **Note**
 >
