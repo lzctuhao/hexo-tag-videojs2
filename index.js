@@ -73,7 +73,7 @@ hexo.extend.tag.register('videojs2', (args) => {
 
   out_html+='<script src="/libs/videojs2/videojs-remember.min.js"></script><script>videojs(document.querySelector("video")).remember({"localStorageKey": "videojs.remember.myvideo"});</script>';
 
-  is_chapter && (out_html+='<link rel="stylesheet" href="/libs/videojs2/videojs-chapters.css"/><script src="/libs/videojs2/videojs-chapters.js"></script><script>window.addEventListener("load",function(){videojs(document.querySelector("video")).chapters();})</script>');
+  is_chapter && (out_html+='<link rel="stylesheet" href="/libs/videojs2/videojs-chapters.css"/><script src="/libs/videojs2/videojs-chapters.min.js"></script><script>window.addEventListener("load",function(){videojs(document.querySelector("video")).chapters();})</script>');
   return out_html;
 }, { async: true });
 
