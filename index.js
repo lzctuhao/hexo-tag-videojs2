@@ -79,12 +79,12 @@ hexo.extend.tag.register('vjs2', (args) => {
 hexo.extend.tag.register('vjs2list', (args, content) => {
   index++;
   var out_html=`<link href="/libs/videojs2/videojs.css" rel="stylesheet"/>
-  <div class="vjs-playlist-video-wrap"><div class="vjs-playlist-video"><video id="videojs${index}" class="video-js vjs-16-9" controls preload="auto">video</video></div><div class="vjs-playlist"></div></div>  <div class="vjs-list-desc-box"></div>`
+  <div class="vjs-playlist-video-wrap"><div class="vjs-playlist-video"><video id="videojs${index}" class="video-js vjs-16-9" controls preload="auto">video</video></div><div class="vjs-playlist"></div><div class="vjs-list-desc-box"></div></div>`
 
   var has_chapter=content.indexOf("chapters")>-1 ? true : false;
   out_html+=get_plugins(has_chapter);
 
-  out_html+=`<link href="/libs/videojs2/playlist-ui.css" rel="stylesheet"/><script src="/libs/videojs2/videojs-playlist.js"></script><script src="/libs/videojs2/playlist-ui.js"></script>`
+  out_html+=`<link href="/libs/videojs2/playlist-ui.min.css" rel="stylesheet"/><script src="/libs/videojs2/videojs-playlist.js"></script><script src="/libs/videojs2/playlist-ui.min.js"></script>`
   out_html+=`<script>player${index}.playlist(${content});player${index}.playlistUi();</script>`;
 
   return out_html;

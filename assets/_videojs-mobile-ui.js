@@ -111,7 +111,7 @@ function LongTab(overlay_ele){
                     current_brightness=new_brightness;
                     return min
                 }
-                else return num.toFixed(2);
+                else return num;
             }
             rate_or_volume_or_brightness=3;
             new_brightness=range_brightness(current_brightness-(spany_rate*0.8));

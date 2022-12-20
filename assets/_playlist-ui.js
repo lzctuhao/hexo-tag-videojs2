@@ -305,7 +305,6 @@
           if (thumbnail) {
             dom.addClass(thumbnail, 'vjs-playlist-now-playing');
           }
-          console.log(this.items[selectedIndex]);
         }
       }
   
@@ -338,7 +337,7 @@
           if (i === currentItem) {
             addSelectedClass(item);
             let desc=this.items[i].options_.item.description;
-            let desc_box_el=this.player_.el_.parentNode.parentNode.nextSibling;
+            let desc_box_el=this.player_.el_.parentNode.nextSibling.nextSibling;
             if (desc) desc_box_el.innerHTML = desc;
             else desc_box_el.innerHTML = "";
             if (document.activeElement !== item.el()) {
@@ -438,7 +437,14 @@
       options = videojs__default["default"].mergeOptions(defaults, options); // If the player is already using this plugin, remove the pre-existing
       // PlaylistMenu, but retain the element and its location in the DOM because
       // it will be re-used.
-  
+      
+      let player_el=this.player_.el_;
+      document.addEventListener("load",function(){
+        player_el.parentNode.nextElementSibling.style.maxHeight=player_el.clientHeight+"px";
+        player_el=null;
+      })
+      
+
       if (player.playlistMenu) {
         const el = player.playlistMenu.el(); // Catch cases where the menu may have been disposed elsewhere or the
         // element removed from the DOM.
