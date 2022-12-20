@@ -18,10 +18,11 @@ hexo.extend.generator.register('videojs2-g', function (locals) {
 
 let index=0;
 
-hexo.extend.tag.register('videojs2', (args) => {
+hexo.extend.tag.register('vjs2', (args) => {
   index++;
-  var out_html='<link href="/libs/videojs2/video-js.css" rel="stylesheet"/><video id="video-js'+index+'" class="video-js vjs-16-9" controls preload="auto">';
-  var is_chapter=false;has_defalt_subtitle=false;
+
+  var out_html=`<video id="videojs${index}" class="video-js vjs-16-9" controls preload="auto">`;
+  var has_chapter=false;has_defalt_subtitle=false;
   args.forEach(function(arg){
     value=get_value(arg);
     if(value){
@@ -32,8 +33,9 @@ hexo.extend.tag.register('videojs2', (args) => {
         case "audio":
           out_html+='<source src="'+value+'" type="audio/mp3">';
           break;
-        case "subtitle":
-          out_html+='<track preload="auto" src="'+value+'" kind="subtitles"';
+        case "subtitles":
+        case "captions":
+          out_html+=`<track preload="auto" src="${value}" kind="${get_key(arg)}"`;
           if (!has_defalt_subtitle) out_html+=' default '
           out_html+='label="'
           break;
@@ -42,7 +44,7 @@ hexo.extend.tag.register('videojs2', (args) => {
           break;
         case "chapters":
           out_html+='<track preload="auto" src="'+value+'" kind="chapters" label="chapters" />';
-          is_chapter=true;
+          has_chapter=true;
           break;
 
         case "aspect-ratio":
@@ -67,20 +69,32 @@ hexo.extend.tag.register('videojs2', (args) => {
     }
   })
   out_html+='</video>';
-  out_html+='<script src="/libs/videojs2/video.min.js"></script><script src="/libs/videojs2/zh-CN.min.js"></script><script src="/libs/videojs2/videojs.hotkeys.min.js"></script><script>player'+index+'=videojs("video-js'+index+'",{language:"zh-CN",responsive:true,plugins:{hotkeys:{alwaysCaptureHotkeys:true},},});</script>';
-  out_html+='<link rel="stylesheet" href="/libs/videojs2/mytoast.css"/><script src="/libs/videojs2/mytoast.js"></script><script>toast_init(player'+index+')</script>'
-  out_html+='<link rel="stylesheet"href="/libs/videojs2/videojs-mobile-ui.css"/><script src="/libs/videojs2/videojs-mobile-ui.min.js"></script><script>player'+index+'.mobileUi();</script>'
+  
 
-  out_html+='<script src="/libs/videojs2/videojs-remember.min.js"></script><script>videojs(document.querySelector("video")).remember({"localStorageKey": "videojs.remember.myvideo"});</script>';
+  out_html+=get_plugins(has_chapter);
 
-  is_chapter && (out_html+='<link rel="stylesheet" href="/libs/videojs2/videojs-chapters.css"/><script src="/libs/videojs2/videojs-chapters.min.js"></script><script>window.addEventListener("load",function(){videojs(document.querySelector("video")).chapters();})</script>');
   return out_html;
 }, { async: true });
+
+hexo.extend.tag.register('vjs2list', (args, content) => {
+  index++;
+  var out_html=`<link href="/libs/videojs2/videojs.css" rel="stylesheet"/>
+  <div class="vjs-playlist-video-wrap"><div class="vjs-playlist-video"><video id="videojs${index}" class="video-js vjs-16-9" controls preload="auto">video</video></div><div class="vjs-playlist"></div></div>  <div class="vjs-list-desc-box"></div>`
+
+  var has_chapter=content.indexOf("chapters")>-1 ? true : false;
+  out_html+=get_plugins(has_chapter);
+
+  out_html+=`<link href="/libs/videojs2/playlist-ui.css" rel="stylesheet"/><script src="/libs/videojs2/videojs-playlist.js"></script><script src="/libs/videojs2/playlist-ui.js"></script>`
+  out_html+=`<script>player${index}.playlist(${content});player${index}.playlistUi();</script>`;
+
+  return out_html;
+}, { ends: true });
 
 function get_key(str){
   str = str.match(/(\S*?)=/)[1];
   return str.toLowerCase();
 }
+
 function get_value(str){
   try{
     str = str.match(/=(\S*)/)[1];
@@ -88,5 +102,26 @@ function get_value(str){
   } catch(e){/*没有等于号 */
     return null;
   }
+}
+
+function get_plugins(has_chapter){
+  /*主组件及汉化 */
+  let html='<link href="/libs/videojs2/videojs.css" rel="stylesheet"/><script src="/libs/videojs2/video.min.js"></script><script src="/libs/videojs2/zh-CN.min.js"></script><script src="/libs/videojs2/videojs.hotkeys.min.js"></script>';
   
+  /*初始化 */
+  html+=`<script>player${index}=videojs("videojs${index}",{language:"zh-CN",responsive:true,plugins:{hotkeys:{alwaysCaptureHotkeys:true},},});</script>`;
+
+  /* toast */
+  html+=`<link rel="stylesheet" href="/libs/videojs2/mytoast.css"/><script src="/libs/videojs2/mytoast.js"></script><script>toast_init(player${index})</script>`
+
+  /* mobile */
+  html+=`<link rel="stylesheet"href="/libs/videojs2/videojs-mobile-ui.css"/><script src="/libs/videojs2/videojs-mobile-ui.min.js"></script><script>player${index}.mobileUi();</script>`
+
+  /* remember */
+  html+='<script src="/libs/videojs2/videojs-remember.min.js"></script><script>videojs(document.querySelector("video")).remember({"localStorageKey": "videojs.remember.myvideo"});</script>';
+
+  /* chapter */
+  has_chapter && (html+='<link rel="stylesheet" href="/libs/videojs2/videojs-chapters.css"/><script src="/libs/videojs2/videojs-chapters.min.js"></script><script>window.addEventListener("load",function(){videojs(document.querySelector("video")).chapters();})</script>');
+
+  return html;
 }

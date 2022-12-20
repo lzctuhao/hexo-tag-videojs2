@@ -40,18 +40,21 @@ Advanced features:
 
 ## Usage
 
+### Single Video
+
 The full tag format is as follows:
 
 ```bash
-{% videojs2 "key1=value1" "key2=value2" %}
+{% vjs2 "key1=value1" "key2=value2" %}
 ```
 
 | Key          | Value                                               | Description                                                                                                                              |
 | ------------ | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | video        | `string`<br />**Required.** Non repeatable. | URL of the video.                                                                                                                        |
 | audio        | `string`<br />Optional. Repeatable.               | URL of audio track.                                                                                                                      |
-| subtitle     | `string`<br />Optional. Repeatable.               | URL of subtitle.<br />**".vtt" format required.**<br />**Must followed by a `label` k-v pair!**                            |
-| label        | `string`<br />Optional. Repeatable.               | Label text for subtitle.<br />**Must follow a `subtitle` k-v pair!**                                                             |
+| subtitles    | `string`<br />Optional. Repeatable.               | URL of subtitles.<br />**".vtt" format required.**<br />**Must followed by a `label` k-v pair!**                           |
+| captions     | `string`<br />Optional. Repeatable.               | URL of captions.<br />**".vtt" format required.**<br />**Must followed by a `label` k-v pair!**                            |
+| label        | `string`<br />Optional. Repeatable.               | Label text for subtitle.<br />**Must follow a `subtitle` or `captions` k-v pair!**                                             |
 | chapters     | `string`<br />Optional. Non repeatable.           | URL of chapters.<br />**".vtt" format required.**                                                                                  |
 | aspect-ratio | `string`<br />Optional. Non repeatable.           | The aspect-ratio of the video.<br />Format: `Width-Height`.                                                                            |
 | width        | `number`<br />Optional. Non repeatable.           | Width of DOM.                                                                                                                            |
@@ -65,15 +68,15 @@ More options will be available in future releases.
 Simple example:
 
 ```bash
-{% videojs2 "video=file1.mp4" "subtitle=eng.vtt" "label=English" "subtitle=chs-eng.vtt" "label=双语" "poster=cover.png" %}
+{% vjs2 "video=file1.mp4" "subtitle=eng.vtt" "label=English" "subtitle=chs-eng.vtt" "label=双语" "poster=cover.png" %}
 ```
 
 ```bash
-{% videojs2 "video=file2.mp4" "chapters=touch_chapter.vtt" "aspect-ratio=16-9" "loop" "autoplay" "poster=key" %}
+{% vjs2 "video=file2.mp4" "chapters=touch_chapter.vtt" "aspect-ratio=16-9" "loop" "autoplay" "poster=key" %}
 ```
 
 ```bash
-{% videojs2 
+{% vjs2 
 "video=https://sbw0104-my.sharepoint.com/:v:/g/personal/013_sbw0104_onmicrosoft_com/ERQD08cGcYhLotmoQ6q-LKEB6bCfHhe865Htq7NvLkHkMA?e=1T1Wu0&download=1"
 "chapters=touch_chapter.vtt"
 "subtitle=touch.vtt"  "label=English"
@@ -101,6 +104,56 @@ Simple example:
 > Credits
 > ```
 
+### Playlist
+
+```
+{% vjs2list %}
+content
+{% endvjs2list %}
+
+```
+
+'content' is a list containing information of all videos. For example:
+
+```js
+{% vjs2list %}
+[{
+  sources: [{
+    src: 'url.mp4',
+    type: 'video/mp4'
+  }],
+  poster: 'poster.png',
+  name: "Name of the video",
+  description: "Description of the video",
+  textTracks: [{src:"captions.vtt",label:"text",kind:"captions"}],
+}, {
+  sources: [{
+    src: 'http://media.w3.org/2010/05/bunny/trailer.mp4',
+    type: 'video/mp4'
+  }],
+  poster: 'http://media.w3.org/2010/05/bunny/poster.png'
+}, {
+  sources: [{
+    src: 'http://vjs.zencdn.net/v/oceans.mp4',
+    type: 'video/mp4'
+  }],
+  poster: 'http://www.videojs.com/img/poster.jpg'
+}, {
+  sources: [{
+    src: 'http://media.w3.org/2010/05/bunny/movie.mp4',
+    type: 'video/mp4'
+  }],
+  poster: 'http://media.w3.org/2010/05/bunny/poster.png'
+}, {
+  sources: [{
+    src: 'http://media.w3.org/2010/05/video/movie_300.mp4',
+    type: 'video/mp4'
+  }],
+  poster: 'http://media.w3.org/2010/05/video/poster.png'
+}]
+{% endvjs2list %}
+```
+
 ## Thanks to
 
 - [videojs/video.js: Video.js - open source HTML5 video player (github.com)](https://github.com/videojs/video.js)
@@ -108,6 +161,8 @@ Simple example:
 - [mister-ben/videojs-mobile-ui: Mobile UI for Video.js (github.com)](https://github.com/mister-ben/videojs-mobile-ui)
 - [video.js/zh-CN.json at main · videojs/video.js (github.com)](https://github.com/videojs/video.js/blob/main/lang/zh-CN.json)
 - [sethjeffery/videojs-remember: Remembers the last place the user was at when watching a video, using localStorage. (github.com)](https://github.com/sethjeffery/videojs-remember)
+- [videojs/videojs-playlist: Playlist plugin for videojs (github.com)](https://github.com/videojs/videojs-playlist)
+- [videojs/videojs-playlist-ui: A playlist video picker for video.js (github.com)](https://github.com/videojs/videojs-playlist-ui)
 
 ## Issues
 
