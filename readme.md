@@ -24,6 +24,7 @@ Advanced features:
 - Draggable progress bar ([issue](https://github.com/videojs/video.js/issues/4460))
 - Save playback progress ([videojs-remember](https://github.com/sethjeffery/videojs-remember))
 - Show markers for chapters on progress bar
+- Playlist supported
 - On mobile:
   - Double-tap the left side of the player to rewind ten seconds ([videojs-mobile-ui.js](https://github.com/mister-ben/videojs-mobile-ui))
   - Double-tap the right side of the player to fast-forward ten seconds([videojs-mobile-ui.js](https://github.com/mister-ben/videojs-mobile-ui))

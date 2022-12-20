@@ -23,6 +23,7 @@ npm install --save hexo-tag-videojs2
 - 改变音量时，增加文字提示(DIY by myself)
 - 保存播放进度 ([videojs-remember](https://github.com/sethjeffery/videojs-remember))
 - 若视频有章节，将在进度条上显示标记点
+- 支持播放列表
 - 移动端:
   - 双击播放器左侧，快退10秒 ([videojs-mobile-ui.js](https://github.com/mister-ben/videojs-mobile-ui))
   - 双击播放器右侧，快进10秒 ([videojs-mobile-ui.js](https://github.com/mister-ben/videojs-mobile-ui))
