@@ -1,6 +1,6 @@
 {
   "name": "hexo-tag-videojs2",
-  "version": "0.7.3",
+  "version": "0.7.4",
   "description": "Use video.js player in Hexo.",
   "main": "index.js",
   "keywords": [
