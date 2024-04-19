@@ -109,12 +109,12 @@ function get_plugins(has_chapter){
   let html='<link href="/libs/videojs2/videojs.css" rel="stylesheet"/><script src="/libs/videojs2/video.min.js"></script><script src="/libs/videojs2/zh-CN.min.js"></script><script src="/libs/videojs2/videojs.hotkeys.min.js"></script>';
   
   /*初始化 */
-  html+=`<script>player${index}=videojs("videojs${index}",{language:"zh-CN",responsive:true,plugins:{hotkeys:{alwaysCaptureHotkeys:true},},});</script>`;
+  html+=`<script>player${index}=videojs("videojs${index}",{language:"zh-CN",playbackRates: [0.5,0.75, 1, 1.25,1.5, 2],responsive:true,plugins:{hotkeys:{alwaysCaptureHotkeys:true}}});</script>`;
 
-  /* toast */
-  html+=`<link rel="stylesheet" href="/libs/videojs2/mytoast.css"/><script src="/libs/videojs2/mytoast.js"></script><script>toast_init(player${index})</script>`
+  /* toast及进度条拖动 */
+  html+=`<link rel="stylesheet" href="/libs/videojs2/videojs-workaround.min.css"/><script src="/libs/videojs2/videojs-workaround.min.js"></script><script>toast_init(player${index})</script>`
 
-  /* mobile */
+  /* mobile-ui */
   html+=`<link rel="stylesheet"href="/libs/videojs2/videojs-mobile-ui.css"/><script src="/libs/videojs2/videojs-mobile-ui.min.js"></script><script>player${index}.mobileUi();</script>`
 
   /* remember */

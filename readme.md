@@ -4,7 +4,7 @@
 
 [中文文档](https://github.com/lzctuhao/hexo-tag-videojs2/blob/main/readme_CN.md)
 
-Use [video.js](https://videojs.com/advanced?video=disneys-oceans) player in Hexo. [Demo](https://lzc2002.tk/2022/1210/folder-magazines/touch/mkv-the-power-of-gentle-touch/).
+Use [video.js](https://videojs.com/advanced?video=disneys-oceans) player in Hexo. [Demo](https://lzc2002.top/2020/0201/folder-education/wuhan-videos/).
 
 ## Installation
 
@@ -40,6 +40,20 @@ Advanced features:
 > If advanced features are not needed, use [hexo-tag-video-js](https://github.com/Meta-Network/hexo-tag-video-js) instead for a faster loading speed.
 
 ## Usage
+
+### Theme color
+
+Please open the file at `PATH_TO_BLOG\node_modules\hexo-tag-videojs2\assets\videojs.css`. At the beginning of it, you can modify the theme color. The default theme color is:
+
+```css
+div.video-js{
+	--vjs-bg-color-light:#f8bbd080;
+	--vjs-bg-color-theme:#aa818f;
+	--vjs-bg-color-dark:#50002a80;
+}
+```
+
+You can modify the above three colors to match the theme color of your website.
 
 ### Single Video
 
@@ -164,6 +178,10 @@ content
 - [sethjeffery/videojs-remember: Remembers the last place the user was at when watching a video, using localStorage. (github.com)](https://github.com/sethjeffery/videojs-remember)
 - [videojs/videojs-playlist: Playlist plugin for videojs (github.com)](https://github.com/videojs/videojs-playlist)
 - [videojs/videojs-playlist-ui: A playlist video picker for video.js (github.com)](https://github.com/videojs/videojs-playlist-ui)
+
+## To-do
+
+- [ ] Write workaround as an independent plug-in using document standard to solve the problem of dragging progress bar and toast prompt in videojs.
 
 ## Issues
 

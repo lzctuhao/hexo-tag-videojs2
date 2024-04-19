@@ -4,7 +4,7 @@
 
 [English Version](https://github.com/lzctuhao/hexo-tag-videojs2/blob/main/readme.md)
 
-在Hexo中使用[video.js](https://videojs.com/advanced?video=disneys-oceans)视频播放器. [样例](https://lzc2002.tk/2022/1210/folder-magazines/touch/mkv-the-power-of-gentle-touch/).
+在Hexo中使用[video.js](https://videojs.com/advanced?video=disneys-oceans)视频播放器. [样例](https://lzc2002.top/2020/0201/folder-education/wuhan-videos/).
 
 ## 安装
 
@@ -43,6 +43,20 @@ npm install --save hexo-tag-videojs2
 > 如不需要进阶功能，为了更快的加载速度，建议使用[hexo-tag-video-js](https://github.com/Meta-Network/hexo-tag-video-js)。
 
 ## 用法
+
+### 主题色
+
+请打开 `PATH_TO_BLOG\node_modules\hexo-tag-videojs2\assets\videojs.css`文件的最开头修改主题色。默认的主题色是：
+
+```css
+div.video-js{
+	--vjs-bg-color-light:#f8bbd080;
+	--vjs-bg-color-theme:#aa818f;
+	--vjs-bg-color-dark:#50002a80;
+}
+```
+
+您可以修改上述三个颜色，以匹配您网站的主题色。
 
 ### 单个视频
 
@@ -168,6 +182,10 @@ content
 - [sethjeffery/videojs-remember: Remembers the last place the user was at when watching a video, using localStorage. (github.com)](https://github.com/sethjeffery/videojs-remember)
 - [videojs/videojs-playlist: Playlist plugin for videojs (github.com)](https://github.com/videojs/videojs-playlist)
 - [videojs/videojs-playlist-ui: A playlist video picker for video.js (github.com)](https://github.com/videojs/videojs-playlist-ui)
+
+## To-do
+
+- [ ] 将workaround使用文档标准写成独立插件，以解决videojs的进度条拖动问题、toast提示。
 
 ## Issues
 
