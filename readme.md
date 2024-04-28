@@ -35,21 +35,20 @@ Advanced features:
   - Swipe up-and-down on the left half of the screen to adjust the brightness (DIY by myself)
   - Swipe up-and-down on the right half of the screen to adjust the volume (DIY by myself)
 
-> **Note**
->
+> [!TIP]
 > If advanced features are not needed, use [hexo-tag-video-js](https://github.com/Meta-Network/hexo-tag-video-js) instead for a faster loading speed.
 
 ## Usage
 
 ### Theme color
 
-Please open the file at `PATH_TO_BLOG\node_modules\hexo-tag-videojs2\assets\videojs.css`. At the beginning of it, you can modify the theme color. The default theme color is:
+Please open the file at `PATH_TO_BLOG\node_modules\hexo-tag-videojs2\assets\videojs.css`. At the beginning of it, you can modify the theme color. The default theme color is: `#f8bbd080` `#aa818f` `#50002a80`.
 
 ```css
 div.video-js{
-	--vjs-bg-color-light:#f8bbd080;
-	--vjs-bg-color-theme:#aa818f;
-	--vjs-bg-color-dark:#50002a80;
+  --vjs-bg-color-light:#f8bbd080;
+  --vjs-bg-color-theme:#aa818f;
+  --vjs-bg-color-dark:#50002a80;
 }
 ```
 
@@ -99,8 +98,7 @@ Simple example:
 "poster=key" %}
 ```
 
-> **Note**
->
+> [!NOTE]
 > `.vtt` file for chapters may be like:
 >
 > ```vtt

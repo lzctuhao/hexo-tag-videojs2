@@ -38,15 +38,14 @@ npm install --save hexo-tag-videojs2
 
 ![手势](https://github.com/lzctuhao/hexo-tag-videojs2/blob/main/assets/key_mobile.png?raw=true)
 
-> **Note**
->
+> [!TIP]
 > 如不需要进阶功能，为了更快的加载速度，建议使用[hexo-tag-video-js](https://github.com/Meta-Network/hexo-tag-video-js)。
 
 ## 用法
 
 ### 主题色
 
-请打开 `PATH_TO_BLOG\node_modules\hexo-tag-videojs2\assets\videojs.css`文件的最开头修改主题色。默认的主题色是：
+请打开 `PATH_TO_BLOG\node_modules\hexo-tag-videojs2\assets\videojs.css`文件的最开头修改主题色。默认的主题色是：`#f8bbd080` `#aa818f` `#50002a80`。
 
 ```css
 div.video-js{
@@ -102,8 +101,7 @@ div.video-js{
 "poster=key" %}
 ```
 
-> **Note**
->
+> [!NOTE]
 > 章节的 `.vtt`文件格式样例：
 >
 > ```vtt
