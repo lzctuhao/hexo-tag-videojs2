@@ -57,7 +57,7 @@ hexo.extend.tag.register('vjs2', (args) => {
           out_html=out_html.replace(/<video /,'<video height="'+value+'"');
           break;
         case "poster":
-          (value=="key") && (value="/libs/videojs2/key.png");
+          if (value=="key") value="/libs/videojs2/key.png";
           out_html=out_html.replace(/<video /,'<video poster="'+value+'"');
           break;
         default :

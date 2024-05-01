@@ -14,7 +14,7 @@ npm install --save hexo-tag-videojs2
 
 ## Features
 
-- Basic video-js functions
+Basic video-js functions.
 
 Advanced features:
 

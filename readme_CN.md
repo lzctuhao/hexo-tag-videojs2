@@ -14,7 +14,7 @@ npm install --save hexo-tag-videojs2
 
 ## 特性
 
-- 基本的video-js播放器功能
+具有基本的video-js播放器功能。
 
 进阶功能：
 
