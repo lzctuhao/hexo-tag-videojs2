@@ -314,7 +314,6 @@
   const mobileUi = function (options = {}) {
     if (options.forceForTesting || videojs__default["default"].browser.IS_ANDROID || videojs__default["default"].browser.IS_IOS) {
       this.ready(() => {
-        console.log(this.posterImage.el_.querySelector("img").src);
         if(this.posterImage.el_.querySelector("img")) this.posterImage.el_.querySelector("img").src=this.posterImage.el_.querySelector("img").src.replace(/\/videojs2\/key.png/,"/videojs2/key_mobile.png");
         onPlayerReady(this, videojs__default["default"].obj.merge(defaults, options));
       });
