@@ -105,22 +105,59 @@ function get_value(str){
 }
 
 function get_plugins(has_chapter){
-  /*主组件及汉化 */
-  let html='<link href="/libs/videojs2/videojs.css" rel="stylesheet"/><script src="/libs/videojs2/video.min.js"></script><script src="/libs/videojs2/zh-CN.min.js"></script><script src="/libs/videojs2/videojs.hotkeys.min.js"></script>';
+  // /*初始化(等待videojs主函数加载完毕后立即执行) */
+  // let html=`<script>function init_player${index}(){player${index}=videojs("videojs${index}",{language:"zh-CN",playbackRates: [0.5, 0.75, 1, 1.25, 1.5, 2],responsive:true,plugins:{hotkeys:{alwaysCaptureHotkeys:true}}});}</script>`;
+
+  // /*主组件、汉化、hotkeys */
+  // html+=`<link href="/libs/videojs2/videojs.css" rel="stylesheet"/><script defer src="/libs/videojs2/video.min.js"></script><script defer src="/libs/videojs2/zh-CN.min.js"></script><script defer src="/libs/videojs2/videojs.hotkeys.min.js" onload="init_player${index}()"></script>`;
+
+  // /* toast及进度条拖动 */
+  // html+=`<link rel="stylesheet" href="/libs/videojs2/videojs-workaround.min.css"/><script defer src="/libs/videojs2/videojs-workaround.min.js" onload="toast_init(player${index})"></script>`
+
+  // /* mobile-ui */
+  // html+=`<link rel="stylesheet" href="/libs/videojs2/videojs-mobile-ui.css"/><script defer src="/libs/videojs2/videojs-mobile-ui.min.js" onload="player${index}.mobileUi();"></script>`
+
+  // /* remember */
+  // html+=`<script defer src="/libs/videojs2/videojs-remember.min.js" onload='videojs(player${index}).remember({"localStorageKey":"videojs.remember.myvideo"});'></script>`;
+
+  // /* chapter */
+  // has_chapter && (html+='<link rel="stylesheet" href="/libs/videojs2/videojs-chapters.css"/><script src="/libs/videojs2/videojs-chapters.min.js"></script><script>window.addEventListener("load",function(){videojs(document.querySelector("video")).chapters();})</script>');
+
+  // return html;
   
-  /*初始化 */
-  html+=`<script>player${index}=videojs("videojs${index}",{language:"zh-CN",playbackRates: [0.5,0.75, 1, 1.25,1.5, 2],responsive:true,plugins:{hotkeys:{alwaysCaptureHotkeys:true}}});</script>`;
+  let html=`<script>function init_player${index}(){player${index}=videojs("videojs${index}",{language:"zh-CN",playbackRates: [0.5, 0.75, 1, 1.25, 1.5, 2],responsive:true,plugins:{hotkeys:{alwaysCaptureHotkeys:true}}});}</script><link href="/libs/videojs2/videojs.css" rel="stylesheet"/><link rel="stylesheet" href="/libs/videojs2/videojs-workaround.min.css"/><link rel="stylesheet" href="/libs/videojs2/videojs-mobile-ui.css"/>`;
 
-  /* toast及进度条拖动 */
-  html+=`<link rel="stylesheet" href="/libs/videojs2/videojs-workaround.min.css"/><script src="/libs/videojs2/videojs-workaround.min.js"></script><script>toast_init(player${index})</script>`
-
-  /* mobile-ui */
-  html+=`<link rel="stylesheet"href="/libs/videojs2/videojs-mobile-ui.css"/><script src="/libs/videojs2/videojs-mobile-ui.min.js"></script><script>player${index}.mobileUi();</script>`
-
-  /* remember */
-  html+='<script src="/libs/videojs2/videojs-remember.min.js"></script><script>videojs(document.querySelector("video")).remember({"localStorageKey": "videojs.remember.myvideo"});</script>';
-
-  /* chapter */
+  html+=`<script>
+  function loadScriptsSequentially(scripts) {
+    function loadNext(index) {
+      if (index >= scripts.length) return;
+  
+      var script = document.createElement('script');
+      script.src = scripts[index][0];
+      script.defer = true;
+      script.onload = function() {
+        if (scripts[index][1]) {
+          scripts[index][1]();
+        }
+        loadNext(index + 1);
+      };
+      document.head.appendChild(script);
+    }
+  
+    loadNext(0);
+  }
+  
+  var scriptsToLoad = [
+    ['/libs/videojs2/video.min.js', null],
+    ['/libs/videojs2/zh-CN.min.js', null],
+    ['/libs/videojs2/videojs.hotkeys.min.js', init_player${index}],
+    ['/libs/videojs2/videojs-workaround.min.js', function(){toast_init(player${index})}],
+    ['/libs/videojs2/videojs-mobile-ui.min.js',function(){player${index}.mobileUi()}],
+    ['/libs/videojs2/videojs-remember.min.js',function(){player${index}.remember({"localStorageKey":"videojs.remember.myvideo"})}]
+  ];
+  
+  loadScriptsSequentially(scriptsToLoad);
+  </script>`;
   has_chapter && (html+='<link rel="stylesheet" href="/libs/videojs2/videojs-chapters.css"/><script src="/libs/videojs2/videojs-chapters.min.js"></script><script>window.addEventListener("load",function(){videojs(document.querySelector("video")).chapters();})</script>');
 
   return html;
